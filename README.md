@@ -16,3 +16,12 @@ Built with React, TypeScript, and Vite, using mock data based on the project SRS
 2. Run: docker compose up --build -d
 3. Open: http://localhost:8080
 4. Stop: docker compose down
+
+## Deployment
+
+- Live site: https://YOUR-PROJECT.vercel.app
+- Hosting: Vercel, connected to this GitHub repository.
+- CI: GitHub Actions (.github/workflows/ci.yml) installs, lints, and builds the project on every pull request and every push to main.
+- Every merge to main deploys automatically to production. Every pull request gets a Vercel preview link.
+
+To run locally: npm install, then npm run dev.
