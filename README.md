@@ -19,7 +19,7 @@ Built with React, TypeScript, and Vite, using mock data based on the project SRS
 
 ## Deployment
 
-- Live site: class-monitoring-frontend.vercel.app
+- Live site: https://class-monitoring-frontend.vercel.app
 - Hosting: Vercel, connected to this GitHub repository.
 - CI: GitHub Actions (.github/workflows/ci.yml) installs, lints, and builds the project on every pull request and every push to main.
 - Every merge to main deploys automatically to production. Every pull request gets a Vercel preview link.
