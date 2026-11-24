@@ -1,0 +1,141 @@
+.dash-topbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+
+.dash-topbar-left,
+.dash-topbar-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.dash-topbar-text {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.dash-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--blue);
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.dash-bell {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dash-bell-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    background: var(--blue);
+    color: #ffffff;
+    font-size: 11px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dash-title {
+    font-size: 24px;
+}
+
+.dash-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 4px 0 20px;
+}
+
+.dash-stats {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 16px;
+}
+
+.dash-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.dash-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dash-session-card h2 {
+    font-size: 20px;
+    margin: 10px 0 14px;
+}
+
+.dash-number {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 10px 0 14px;
+}
+
+.dash-number span {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.dash-small {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-green { background: var(--green); }
+.dot-gray { background: #8a93a3; }
+.dot-orange { background: var(--orange); }
+
+@media (max-width: 1000px) {
+  .dash-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dash-session-card {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .dash-stats {
+    grid-template-columns: 1fr;
+  }
+}
