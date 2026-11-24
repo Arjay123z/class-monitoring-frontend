@@ -1,9 +1,11 @@
+import { saveSessions } from '../../services/sessions'
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { CircleX, Divide } from 'lucide-react'
+import { CircleX} from 'lucide-react'
 import { instructors } from '../../data/instructor'
 import './InstructorLogin.css'
+
 
 type LoginError = { title: string; message: string}
 
@@ -25,7 +27,7 @@ function InstructorLogin() {
         }
 
         const match = instructors.find(
-            (i) => i.userName === username.trim() && i.password === password,
+            (i) => i.username === username.trim() && i.password === password,
         )
 
         if(!match) {
@@ -36,8 +38,9 @@ function InstructorLogin() {
             return
         }
 
+        saveSessions(match.id)
         setError(null)
-        navigate('/instructor/dashboard')
+        navigate('/instructor/select-class')
     }
 
     return (

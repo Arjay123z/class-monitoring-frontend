@@ -1,0 +1,56 @@
+.class-intro {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.class-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin: 12px;
+}
+
+.class-row {
+    font-size: 14px;
+}
+
+.class-row p {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.class-open {
+    background: var(--blue);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.class-open:hover {
+    background: #234d91;
+}
+
+.class-hint {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.class-empty-icon {
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.class-create {
+    align-self: flex-start;
+    padding: 0;
+}

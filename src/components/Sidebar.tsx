@@ -4,6 +4,7 @@ import {
     ShieldCheck, Bell, Inbox, ClipboardList, LogOut,
 } from 'lucide-react'
 import './Sidebar.css'
+import { clearSession } from '../services/sessions'
 
 const links = [
     {to: '/instructor/dashboard', label: 'Dashboard', icon: LayoutDashboard},
@@ -35,7 +36,7 @@ function Sidebar() {
       </nav>
 
       <div className="sidebar-footer">
-        <Link to="/instructor/login" className="sidebar-link">
+        <Link to="/instructor/login" className="sidebar-link" onClick={clearSession}>
           <LogOut size={18} />
           <span>Sign out</span>
         </Link>
