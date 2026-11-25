@@ -1,0 +1,168 @@
+.ws-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.ws-ok {
+    border-top: 3px solid var(--green);
+}
+
+.ws-conflict {
+    border: 2px solid var(--orange);
+}
+
+.ws-disconnected {
+    border-top: 3px solid #c5cbd6;
+}
+
+.ws-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.ws-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.ws-badge-on {
+    background: var(--green-soft);
+    color: var(--text);
+    border: 1px solid #b7dcc8;
+}
+
+.ws-badge-off {
+    background: #ffffff;
+    color: var(--text);
+    border: 1px dashed #7a869a;
+}
+
+.ws-student {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.ws-student p {
+    font-size: 13px;
+}
+
+.ws-student small {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.ws-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--blue-soft);
+    color: var(--blue);
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ws.nostudent {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.ws-conflict-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--orange-soft);
+  color: var(--orange);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.ws-placeholder {
+  height: 84px;
+  border: 1px dashed #7a869a;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.ws-preview {
+  position: relative;
+  height: 84px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ws-preview::before {
+  content: '';
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  top: 12px;
+  bottom: 14px;
+  border-radius: 2px;
+}
+
+.ws-preview::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+  background: var(--navy);
+}
+
+.preview-dark {
+  background: #0f1b30;
+}
+
+.preview-dark::before {
+  background: #1c2d4d;
+}
+
+.preview-light {
+  background: #d5d9e0;
+}
+
+.preview-light::before {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.preview-green {
+  background: #e8ecf0;
+  border-top: 6px solid var(--green);
+}
+
+.preview-green::before {
+  background: #ffffff;
+}
+
+.ws-active {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.ws-conflict .ws-active {
+  color: var(--orange);
+}
