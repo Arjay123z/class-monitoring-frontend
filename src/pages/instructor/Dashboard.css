@@ -139,3 +139,47 @@
     grid-template-columns: 1fr;
   }
 }
+
+.dash-panel {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.dash-desk {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.dash-row-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 16px 0 8px;
+}
+
+.dash-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .dash-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .dash-row {
+    grid-template-columns: 1fr;
+  }
+}

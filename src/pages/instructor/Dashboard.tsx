@@ -1,8 +1,11 @@
+import WorkstationCard from "../../components/WorkstationCard";
 import { Bell, CirclePlay, Monitor } from "lucide-react";
 import { workstations } from "../../data/workstations";
 import { currentSession } from "../../data/sessions";
 import './Dashboard.css'
 
+
+const rows = ['A', 'B', 'C', 'D'] as const
 function Dashboard() {
     const total = workstations.length
     const connected = workstations.filter((w) => w.status === 'connected').length
@@ -75,6 +78,27 @@ function Dashboard() {
                     <p className="dash-small">needs review</p>
                 </div>
             </div>
+
+            <section className="dash-panel">
+                    <div className="dash-desk">
+                        <Monitor size={16} />
+                        Fron of room. Instructor desk
+                    </div>
+
+                    {rows.map((row) =>
+                        <div key={row}>
+                            <p className="dash-row-label">Row {row}</p>
+                            <div className="dash-row">
+                                {workstations
+                                    .filter((w) => w.row === row)
+                                    .map((w) => (
+                                        <WorkstationCard key={w.id} workstation={w} />
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    )}
+                </section>
         </div>
 
     )
