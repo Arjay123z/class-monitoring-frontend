@@ -1,5 +1,8 @@
 import WorkstationCard from "../../components/WorkstationCard";
-import { Bell, CirclePlay, Monitor } from "lucide-react";
+import { Bell, CirclePlay, Monitor, TriangleAlert } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { notifications } from "../../data/notification";
+import { recentActivity } from "../../data/activity";
 import { workstations } from "../../data/workstations";
 import { currentSession } from "../../data/sessions";
 import './Dashboard.css'
@@ -10,7 +13,9 @@ function Dashboard() {
     const total = workstations.length
     const connected = workstations.filter((w) => w.status === 'connected').length
     const disconnected = total - connected
-    const pending = workstations.filter((w) => w.ruleConflict).length
+    const navigate = useNavigate()
+    const pendingItems = notifications.filter((n) => n.status ==='pending')
+    const pending = pendingItems.length
 
     return (
         <div className="dash">
@@ -79,13 +84,14 @@ function Dashboard() {
                 </div>
             </div>
 
-            <section className="dash-panel">
+            <div className="dash-body">
+                <section className="dash-panel">
                     <div className="dash-desk">
                         <Monitor size={16} />
-                        Fron of room. Instructor desk
+                        Front of room. Instructor desk
                     </div>
 
-                    {rows.map((row) =>
+                    {rows.map((row) => (
                         <div key={row}>
                             <p className="dash-row-label">Row {row}</p>
                             <div className="dash-row">
@@ -93,14 +99,60 @@ function Dashboard() {
                                     .filter((w) => w.row === row)
                                     .map((w) => (
                                         <WorkstationCard key={w.id} workstation={w} />
-                                    ))
-                                }
+                                    ))}
                             </div>
                         </div>
-                    )}
+                    ))}
                 </section>
-        </div>
 
+                <aside className="dash-side">
+                    <section className="dash-card">
+                        <h3>Needs attention ({pending})</h3>
+
+                        {pendingItems.length === 0 ? (
+                            <p className="dash-small">Nothing needs your attention.</p>
+                        ) : (
+                            pendingItems.map((n) => (
+                                <div key={n.id} className="dash-alert">
+                                    <p className="dash-alert-title">
+                                        <TriangleAlert size={16} /> {n.title}
+                                    </p>
+                                    <p className="dash-alert-detail">{n.detail}</p>
+                                    <button
+                                        type="button"
+                                        className="dash-review"
+                                        onClick={() => navigate('/instructor/notifications')}
+                                    >
+                                        Review
+                                    </button>
+                                </div>
+                            ))
+                        )}
+
+                        <p className="dash-small dash-note">
+                            A detected conflict is not proof of misconduct.
+                        </p>
+                    </section>
+
+                    <section className="dash-card">
+                        <h3>Recent activity</h3>
+
+                        {recentActivity.length === 0 ? (
+                            <p className="dash-small">No activity yet.</p>
+                        ) : (
+                            <ul className="dash-activity">
+                                {recentActivity.map((a) => (
+                                    <li key={a.id}>
+                                        <span>{a.time}</span>
+                                        <p>{a.text}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </section>
+                </aside>
+            </div>
+        </div>
     )
 }
 
